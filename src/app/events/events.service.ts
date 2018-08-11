@@ -70,4 +70,10 @@ export class EventsService {
   getEvents() {
     return this.events;
   }
+
+  getEvent(id: any) {
+    const event = this.events.find( e => e.id === id);
+    console.log(event);
+    return event;
+  }
 }
