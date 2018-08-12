@@ -6,5 +6,8 @@
     <div *ngFor="let event of events" class="col-md-5">
       <events-thumbnail [event]="event" (click)="handleThumbnailClick(event)"></events-thumbnail>
     </div>
+    <div class="col-md-5" [routerLink]="['/events', 0]">
+      Invalid Link
+    </div>
   </div>
 </div>

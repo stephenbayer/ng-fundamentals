@@ -5,7 +5,7 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
   template: `
     <div
       [routerLink]="['/events', event.id]"
-      style="margin-bottom: 10px; height: 250px; overflow: none;"
+      style="margin-bottom: 10px; height: 250px; overflow: auto;"
       class="card bg-secondary hoverwell img-thumbnail">
       <div style="float: left; width: 100px; height: 100px; position: absolute;">
         <img style="width: 100%;" [src]="event?.imageUrl" />

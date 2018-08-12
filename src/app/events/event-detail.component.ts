@@ -4,15 +4,7 @@ import {ActivatedRoute} from '@angular/router';
 
 @Component({
   templateUrl: './event-detail.component.html',
-  styles: [`
-    .container {
-      padding-left: 20px;
-      padding-right: 20px;
-    }
-    .event-image {
-      height: 100px;
-    }
-  `]
+  styleUrls: ['./event-detail.component.css']
 })
 export class EventDetailComponent implements OnInit {
   constructor(
@@ -23,7 +15,7 @@ export class EventDetailComponent implements OnInit {
   eventId: number;
   ngOnInit(): void {
     console.log(this.route);
-    this.eventId = parseInt(this.route.snapshot.params.id);
+    this.eventId = parseInt(this.route.snapshot.params.id, 10);
     this.event = this.eventsService.getEvent(this.eventId);
   }
 }

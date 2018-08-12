@@ -2,18 +2,25 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { EventsAppComponent } from './events-app.component';
-import {EventsListComponent} from './events/events-list.component';
-import {EventsThumbnailComponent} from './events/events-thumbnail.component';
+import {
+  EventsListComponent,
+  EventsThumbnailComponent,
+  EventsService,
+  EventDetailComponent,
+  EventCreateComponent,
+  EventRouteActivatorService,
+  EventsListResolverService
+} from './events';
 import {NavbarComponent} from './nav/navbar.component';
-import {EventsService} from './events/events.service';
 import {ToastService} from './common/toast.service';
-import {EventDetailComponent} from './events/event-detail.component';
 import {RouterModule} from '@angular/router';
-import {AppRoutes} from './routes';
-import {EventCreateComponent} from './events/event-create.component';
+import {AppRoutes, checkFormIsNotDirtyOrConfirm} from './routes';
+import {FormsModule} from '@angular/forms';
+import {Error404Component} from './errors/error404.component';
 
 @NgModule({
   declarations: [
+    Error404Component,
     NavbarComponent,
     EventsListComponent,
     EventsAppComponent,
@@ -22,10 +29,17 @@ import {EventCreateComponent} from './events/event-create.component';
     EventCreateComponent
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     RouterModule.forRoot(AppRoutes)
   ],
-  providers: [EventsService, ToastService],
+  providers: [
+    EventsService,
+    ToastService,
+    EventRouteActivatorService,
+    { provide: 'checkFormIsNotDirtyOrConfirm', useValue: checkFormIsNotDirtyOrConfirm},
+    EventsListResolverService
+  ],
   bootstrap: [EventsAppComponent]
 })
 export class AppModule { }

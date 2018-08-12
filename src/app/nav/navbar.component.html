@@ -1,9 +1,14 @@
-<div class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a routerLink="/" class="navbar-brand" >ngEvents</a>
+<div class="nav navbar navbar-nav navbar-default">
+  <nav class="container-fluid">
+    <div class="navbar-header-left">
+
+        ngEvents
+      <a routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" [routerLink]='["/events"]'>All Events</a>
+      <a routerLinkActive="active" [routerLink]='["/events/new"]'>Create Event</a>
+
     </div>
-    <a [routerLink]='["/events"]'>All Events</a>
-    <a [routerLink]='["/events/new"]'>Create Event</a>
-  </div>
+    <div class="navbar-header-right">
+      <a routerLinkActive="active" [routerLink]='["/user"]'>Profile</a>
+    </div>
+  </nav>
 </div>
