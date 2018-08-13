@@ -3,10 +3,10 @@
   <hr />
 
   <div class="row">
-    <div *ngFor="let event of events" class="col-md-5">
+    <div *ngFor="let event of events" class="col-md-6">
       <events-thumbnail [event]="event" (click)="handleThumbnailClick(event)"></events-thumbnail>
     </div>
-    <div class="col-md-5" [routerLink]="['/events', 0]">
+    <div class="col-md-6" [routerLink]="['/events', 0]">
       Invalid Link
     </div>
   </div>

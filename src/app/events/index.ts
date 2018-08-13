@@ -5,3 +5,6 @@ export * from './events-list.component';
 export * from './events.service';
 export * from './event-detail.component';
 export * from './event-route-activator.service';
+export * from './models/event.model';
+
+export * from './create-session.component';

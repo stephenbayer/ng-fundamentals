@@ -11,26 +11,32 @@ import {
   EventRouteActivatorService,
   EventsListResolverService
 } from './events';
-import {NavbarComponent} from './nav/navbar.component';
+import {NavbarComponent} from './nav';
 import {ToastService} from './common/toast.service';
 import {RouterModule} from '@angular/router';
 import {AppRoutes, checkFormIsNotDirtyOrConfirm} from './routes';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {Error404Component} from './errors/error404.component';
+import {AuthService} from './user/auth.service';
+import {Error401Component} from './errors/error401.component';
+import {CreateSessionComponent} from './events/create-session.component';
 
 @NgModule({
   declarations: [
+    Error401Component,
     Error404Component,
     NavbarComponent,
     EventsListComponent,
     EventsAppComponent,
     EventsThumbnailComponent,
     EventDetailComponent,
-    EventCreateComponent
+    EventCreateComponent,
+    CreateSessionComponent
   ],
   imports: [
-    FormsModule,
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(AppRoutes)
   ],
   providers: [
@@ -38,7 +44,8 @@ import {Error404Component} from './errors/error404.component';
     ToastService,
     EventRouteActivatorService,
     { provide: 'checkFormIsNotDirtyOrConfirm', useValue: checkFormIsNotDirtyOrConfirm},
-    EventsListResolverService
+    EventsListResolverService,
+    AuthService
   ],
   bootstrap: [EventsAppComponent]
 })

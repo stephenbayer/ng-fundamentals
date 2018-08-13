@@ -8,7 +8,10 @@
 
     </div>
     <div class="navbar-header-right">
-      <a routerLinkActive="active" [routerLink]='["/user"]'>Profile</a>
+      <a *ngIf="!authService.isAuthenticated()" routerLinkActive="active" [routerLink]='["/user/login"]'>Login</a>
+      <a *ngIf="authService.isAuthenticated()" routerLinkActive="active" [routerLink]='["/user"]'>
+        Welcome  {{authService?.currentUser?.firstname}}!
+      </a>
     </div>
   </nav>
 </div>
